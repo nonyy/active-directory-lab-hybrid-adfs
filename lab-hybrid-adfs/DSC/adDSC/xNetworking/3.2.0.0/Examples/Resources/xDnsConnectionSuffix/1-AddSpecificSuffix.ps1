@@ -15,7 +15,7 @@ Configuration Example
         xDnsConnectionSuffix DnsConnectionSuffix
         {
             InterfaceAlias           = 'Ethernet'
-            ConnectionSpecificSuffix = 'centoso.com'
+            ConnectionSpecificSuffix = 'centoso.tk'
         }
     }
 }

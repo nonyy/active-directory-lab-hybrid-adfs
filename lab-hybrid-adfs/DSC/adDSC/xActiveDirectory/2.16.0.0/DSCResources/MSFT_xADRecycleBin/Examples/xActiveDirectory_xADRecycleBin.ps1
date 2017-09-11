@@ -31,7 +31,7 @@ $ConfigurationData = @{
     )
 }
 
-Example_xADRecycleBin -EACredential (Get-Credential centoso\administrator) -ForestFQDN 'centoso.com' -ConfigurationData $ConfigurationData
+Example_xADRecycleBin -EACredential (Get-Credential centoso\administrator) -ForestFQDN 'centoso.tk' -ConfigurationData $ConfigurationData
 
 Start-DscConfiguration -Path .\Example_xADRecycleBin -Wait -Verbose -WhatIf
 

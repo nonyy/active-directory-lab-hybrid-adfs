@@ -33,11 +33,11 @@ try
 
         #region Pester Test Initialization
 
-        $testDomainName = 'centoso.com';
+        $testDomainName = 'centoso.tk';
         $testDefaultParams = @{
             DomainName = $testDomainName;
         }
-        $testDomainController = 'testserver.centoso.com';
+        $testDomainController = 'testserver.centoso.tk';
         $testPassword = (ConvertTo-SecureString 'DummyPassword' -AsPlainText -Force);
         $testCredential = New-Object System.Management.Automation.PSCredential 'Safemode', $testPassword;
 
@@ -114,11 +114,11 @@ try
         #region Function Test-TargetResource
         Describe "$($Global:DSCResourceName)\Test-TargetResource" {
 
-            $testDomainName = 'centoso.com';
+            $testDomainName = 'centoso.tk';
             $testDefaultParams = @{
                 DomainName = $testDomainName;
             }
-            $testDomainController = 'testserver.centoso.com';
+            $testDomainController = 'testserver.centoso.tk';
             $testPassword = (ConvertTo-SecureString 'DummyPassword' -AsPlainText -Force);
             $testCredential = New-Object System.Management.Automation.PSCredential 'Safemode', $testPassword;
 
@@ -199,11 +199,11 @@ try
         #region Function Set-TargetResource
         Describe "$($Global:DSCResourceName)\Set-TargetResource" {
 
-            $testDomainName = 'centoso.com';
+            $testDomainName = 'centoso.tk';
             $testDefaultParams = @{
                 DomainName = $testDomainName;
             }
-            $testDomainController = 'testserver.centoso.com';
+            $testDomainController = 'testserver.centoso.tk';
             $testPassword = (ConvertTo-SecureString 'DummyPassword' -AsPlainText -Force);
             $testCredential = New-Object System.Management.Automation.PSCredential 'Safemode', $testPassword;
 

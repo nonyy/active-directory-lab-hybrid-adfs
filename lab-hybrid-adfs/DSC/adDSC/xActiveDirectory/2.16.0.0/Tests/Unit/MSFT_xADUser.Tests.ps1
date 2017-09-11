@@ -26,7 +26,7 @@ try
     InModuleScope $Global:DSCResourceName {
 
         $testPresentParams = @{
-            DomainName = 'centoso.com';
+            DomainName = 'centoso.tk';
             UserName = 'TestUser';
             Ensure = 'Present';
         }

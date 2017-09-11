@@ -35,15 +35,15 @@ try
             Context "$($Global:DSCResourceName)\Test-TargetResource" {
                 Mock Get-WMIObject {[PSCustomObject]@{DomainName = 'centosoLtd'}} -ParameterFilter {$Class -eq 'Win32_NTDomain'}
                 It 'Throws if both DomainName and WorkGroupName are specified' {
-                    {Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.com' -WorkGroupName 'workgroup'} | Should Throw
+                    {Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.tk' -WorkGroupName 'workgroup'} | Should Throw
                 }
                 It 'Throws if Domain is specified without Credentials' {
-                    {Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.com'} | Should Throw
+                    {Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.tk'} | Should Throw
                 }
                 It 'Should return True if Domain name is same as specified' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
-                    Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.com' -Credential $Credential | Should Be $true
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
+                    Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.tk' -Credential $Credential | Should Be $true
                 }
                 It 'Should return True if Workgroup name is same as specified' {
                     Mock Get-WMIObject {[PSCustomObject]@{Domain = 'Workgroup';Workgroup='Workgroup';PartOfDomain=$false}}
@@ -51,10 +51,10 @@ try
                     Test-TargetResource -Name $Env:ComputerName -WorkGroupName 'workgroup' | Should Be $true
                 }
                 It 'Should return True if ComputerName and Domain name is same as specified' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
-                    Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.com' -Credential $Credential | Should Be $true
-                    Test-TargetResource -Name 'localhost' -DomainName 'centoso.com' -Credential $Credential | Should Be $true
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
+                    Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.tk' -Credential $Credential | Should Be $true
+                    Test-TargetResource -Name 'localhost' -DomainName 'centoso.tk' -Credential $Credential | Should Be $true
                 }
                 It 'Should return True if ComputerName and Workgroup is same as specified' {
                     Mock Get-WMIObject {[PSCustomObject]@{Domain = 'Workgroup';Workgroup='Workgroup';PartOfDomain=$false}}
@@ -67,8 +67,8 @@ try
                     Mock GetComputerDomain {''}
                     Test-TargetResource -Name $Env:ComputerName | Should Be $true
                     Test-TargetResource -Name 'localhost' | Should Be $true
-                    Mock Get-WmiObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WmiObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Test-TargetResource -Name $Env:ComputerName | Should Be $true
                     Test-TargetResource -Name 'localhost' | Should Be $true
                 }
@@ -76,13 +76,13 @@ try
                     Mock Get-WmiObject {[PSCustomObject]@{Domain = 'Workgroup';Workgroup='Workgroup';PartOfDomain=$false}}
                     Mock GetComputerDomain {''}
                     Test-TargetResource -Name $NotComputerName | Should Be $false
-                    Mock Get-WmiObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WmiObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Test-TargetResource -Name $NotComputerName | Should Be $false
                 }
                 It 'Should return False if Domain name is not same as specified' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Test-TargetResource -Name $Env:ComputerName -DomainName 'adventure-works.com' -Credential $Credential  | Should Be $false
                     Test-TargetResource -Name 'localhost' -DomainName 'adventure-works.com' -Credential $Credential  | Should Be $false
                 }
@@ -96,19 +96,19 @@ try
                     Mock Get-WMIObject {[PSCustomObject]@{Domain = 'Workgroup';Workgroup='Workgroup';PartOfDomain=$false}}
                     Mock GetComputerDomain {''}
                     Test-TargetResource -Name $NotComputerName -WorkGroupName 'workgroup' | Should Be $false
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
-                    Test-TargetResource -Name $NotComputerName -DomainName 'centoso.com' -Credential $Credential | Should Be $false
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
+                    Test-TargetResource -Name $NotComputerName -DomainName 'centoso.tk' -Credential $Credential | Should Be $false
                 }
                 It 'Should return False if Computer is in Workgroup and Domain is specified' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$false}}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$false}}
                     Mock GetComputerDomain {''}
-                    Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.com' -Credential $Credential | Should Be $false
-                    Test-TargetResource -Name 'localhost' -DomainName 'centoso.com' -Credential $Credential | Should Be $false
+                    Test-TargetResource -Name $Env:ComputerName -DomainName 'centoso.tk' -Credential $Credential | Should Be $false
+                    Test-TargetResource -Name 'localhost' -DomainName 'centoso.tk' -Credential $Credential | Should Be $false
                 }
                 It 'Should return False if ComputerName is in Domain and Workgroup is specified' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Test-TargetResource -Name $Env:ComputerName -WorkGroupName 'centoso' -Credential $Credential -UnjoinCredential $Credential | Should Be $false
                     Test-TargetResource -Name 'localhost' -WorkGroupName 'centoso' -Credential $Credential -UnjoinCredential $Credential | Should Be $false
                 }
@@ -143,34 +143,34 @@ try
                 Mock Rename-Computer {}
                 Mock Add-Computer {}
                 It 'Throws if both DomainName and WorkGroupName are specified' {
-                    {Set-TargetResource -Name $Env:ComputerName -DomainName 'centoso.com' -WorkGroupName 'workgroup'} | Should Throw
+                    {Set-TargetResource -Name $Env:ComputerName -DomainName 'centoso.tk' -WorkGroupName 'workgroup'} | Should Throw
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It
                 }
                 It 'Throws if Domain is specified without Credentials' {
-                    {Set-TargetResource -Name $Env:ComputerName -DomainName 'centoso.com'} | Should Throw
+                    {Set-TargetResource -Name $Env:ComputerName -DomainName 'centoso.tk'} | Should Throw
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It
                 }
                 It 'Changes ComputerName and changes Domain to new Domain' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name $NotComputerName -DomainName 'adventure-works.com' -Credential $Credential -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName -and $NewName}
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
                 }
                 It 'Changes ComputerName and changes Domain to new Domain with specified OU' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name $NotComputerName -DomainName 'adventure-works.com' -JoinOU 'OU=Computers,DC=centoso,DC=com' -Credential $Credential -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName -and $NewName}
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
                 }
                 It 'Changes ComputerName and changes Domain to Workgroup' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name $NotComputerName -WorkGroupName 'centoso' -Credential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$WorkGroupName -and $NewName -and $Credential}
@@ -179,7 +179,7 @@ try
                 It 'Changes ComputerName and changes Workgroup to Domain' {
                     Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso';Workgroup='centoso';PartOfDomain=$false}}
                     Mock GetComputerDomain {''}
-                    Set-TargetResource -Name $NotComputerName -DomainName 'centoso.com' -Credential $Credential | Should BeNullOrEmpty
+                    Set-TargetResource -Name $NotComputerName -DomainName 'centoso.tk' -Credential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName -and $NewName}
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
@@ -187,7 +187,7 @@ try
                 It 'Changes ComputerName and changes Workgroup to Domain with specified OU' {
                     Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso';Workgroup='centoso';PartOfDomain=$false}}
                     Mock GetComputerDomain {''}
-                    Set-TargetResource -Name $NotComputerName -DomainName 'centoso.com' -JoinOU 'OU=Computers,DC=centoso,DC=com' -Credential $Credential | Should BeNullOrEmpty
+                    Set-TargetResource -Name $NotComputerName -DomainName 'centoso.tk' -JoinOU 'OU=Computers,DC=centoso,DC=com' -Credential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName -and $NewName}
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
@@ -201,8 +201,8 @@ try
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$DomainName}
                 }
                 It 'Changes only the Domain to new Domain' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name $Env:ComputerName -DomainName 'adventure-works.com' -Credential $Credential -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName}
@@ -210,8 +210,8 @@ try
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
                 }
                 It 'Changes only the Domain to new Domain when name is [localhost]' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name 'localhost' -DomainName 'adventure-works.com' -Credential $Credential -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName}
@@ -219,8 +219,8 @@ try
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
                 }
                 It 'Changes only the Domain to new Domain with specified OU' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name $Env:ComputerName -DomainName 'adventure-works.com' -JoinOU 'OU=Computers,DC=centoso,DC=com' -Credential $Credential -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName}
@@ -228,8 +228,8 @@ try
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
                 }
                 It 'Changes only the Domain to new Domain with specified OU when Name is [localhost]' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name 'localhost' -DomainName 'adventure-works.com' -JoinOU 'OU=Computers,DC=centoso,DC=com' -Credential $Credential -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 1 -Scope It -ParameterFilter {$DomainName}
@@ -237,7 +237,7 @@ try
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$WorkGroupName}
                 }
                 It 'Changes only Domain to Workgroup' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
                     Mock GetComputerDomain {''}
                     Set-TargetResource -Name $Env:ComputerName -WorkGroupName 'centoso' -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
@@ -246,7 +246,7 @@ try
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$DomainName}
                 }
                 It 'Changes only Domain to Workgroup when Name is [localhost]' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
                     Mock GetComputerDomain {''}
                     Set-TargetResource -Name 'localhost' -WorkGroupName 'centoso' -UnjoinCredential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 0 -Scope It
@@ -255,8 +255,8 @@ try
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It -ParameterFilter {$DomainName}
                 }
                 It 'Changes only ComputerName in Domain' {
-                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.com';Workgroup='centoso.com';PartOfDomain=$true}}
-                    Mock GetComputerDomain {'centoso.com'}
+                    Mock Get-WMIObject {[PSCustomObject]@{Domain = 'centoso.tk';Workgroup='centoso.tk';PartOfDomain=$true}}
+                    Mock GetComputerDomain {'centoso.tk'}
                     Set-TargetResource -Name $NotComputerName -Credential $Credential | Should BeNullOrEmpty
                     Assert-MockCalled -CommandName Rename-Computer -Exactly 1 -Scope It
                     Assert-MockCalled -CommandName Add-Computer -Exactly 0 -Scope It

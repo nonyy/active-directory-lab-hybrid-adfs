@@ -23,14 +23,14 @@ configuration Sample_xCertReq_RequestAltSSL
         {
             CARootName                = 'test-dc01-ca'
             CAServerFQDN              = 'dc01.test.pha'
-            Subject                   = 'centoso.com'
+            Subject                   = 'centoso.tk'
             KeyLength                 = '1024'
             Exportable                = $true
             ProviderName              = '"Microsoft RSA SChannel Cryptographic Provider"'
             OID                       = '1.3.6.1.5.5.7.3.1'
             KeyUsage                  = '0xa0'
             CertificateTemplate       = 'WebServer'
-            SubjectAltName            = 'dns=fabrikam.com&dns=centoso.com'
+            SubjectAltName            = 'dns=fabrikam.com&dns=centoso.tk'
             AutoRenew                 = $true
             Credential                = $Credential
         }

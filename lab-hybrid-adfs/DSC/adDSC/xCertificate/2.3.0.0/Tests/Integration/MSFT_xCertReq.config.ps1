@@ -8,7 +8,7 @@ $ProviderName         = '"Microsoft RSA SChannel Cryptographic Provider"'
 $OID                  = '1.3.6.1.5.5.7.3.1'
 $KeyUsage             = '0xa0'
 $CertificateTemplate  = 'WebServer'
-$SubjectAltName       = 'dns=centoso.com&dns=fabrikam.com'
+$SubjectAltName       = 'dns=centoso.tk&dns=fabrikam.com'
 
 # If automated testing with a real CA can be performed then the credentials should be
 # obtained non-interactively way - do not do this in a production environment.

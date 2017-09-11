@@ -92,7 +92,7 @@ try
                 }
             }
 
-            Mock Get-DomainName -MockWith { return 'centoso.com' }
+            Mock Get-DomainName -MockWith { return 'centoso.tk' }
 
             Context 'Domain is already joined' {
                 It 'should return false' {

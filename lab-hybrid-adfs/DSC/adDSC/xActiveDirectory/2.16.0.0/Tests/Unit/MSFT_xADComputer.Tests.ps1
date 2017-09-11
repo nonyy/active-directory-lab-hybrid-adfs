@@ -47,10 +47,10 @@ try
             SID = 'S-1-5-21-1409167834-891301383-2860967316-1143';
             ObjectClass = 'computer';
             ObjectGUID = [System.Guid]::NewGuid();
-            UserPrincipalName = 'TESTCOMPUTER@centoso.com';
+            UserPrincipalName = 'TESTCOMPUTER@centoso.tk';
             ServicePrincipalNames = @('spn/a','spn/b');
             Location = 'Test location';
-            DnsHostName = '{0}.centoso.com' -f $testPresentParams.ComputerName;
+            DnsHostName = '{0}.centoso.tk' -f $testPresentParams.ComputerName;
             DisplayName = $testPresentParams.ComputerName;
             Description = 'Test description';
             ManagedBy = 'CN=Manager,CN=Users,DC=centoso,DC=com';

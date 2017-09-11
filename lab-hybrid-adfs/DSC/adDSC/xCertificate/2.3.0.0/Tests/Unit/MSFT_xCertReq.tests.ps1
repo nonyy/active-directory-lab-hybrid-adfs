@@ -83,7 +83,7 @@ try
                 }
             }
         ) -join ''
-        $CAServerFQDN          = 'rootca.centoso.com'
+        $CAServerFQDN          = 'rootca.centoso.tk'
         $CARootName            = 'centoso-CA'
         $validSubject          = 'Test Subject'
         $validIssuer           = "CN=$CARootName, DC=centoso, DC=com"
@@ -93,7 +93,7 @@ try
         $OID                   = '1.3.6.1.5.5.7.3.1'
         $KeyUsage              = '0xa0'
         $CertificateTemplate   = 'WebServer'
-        $SubjectAltName        = 'dns=centoso.com'
+        $SubjectAltName        = 'dns=centoso.tk'
 
         $validCert      = New-Object -TypeName PSObject -Property @{
             Thumbprint  = $validThumbprint

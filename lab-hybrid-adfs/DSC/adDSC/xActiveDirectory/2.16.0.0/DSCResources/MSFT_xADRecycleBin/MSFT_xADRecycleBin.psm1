@@ -175,9 +175,9 @@ Test syntax:
 $cred = Get-Credential centoso\administrator
 
 # Valid Domain
-Get-TargetResource -ForestFQDN centoso.com -EnterpriseAdministratorCredential $cred
-Test-TargetResource -ForestFQDN centoso.com -EnterpriseAdministratorCredential $cred
-Set-TargetResource -ForestFQDN centoso.com -EnterpriseAdministratorCredential $cred -WhatIf
+Get-TargetResource -ForestFQDN centoso.tk -EnterpriseAdministratorCredential $cred
+Test-TargetResource -ForestFQDN centoso.tk -EnterpriseAdministratorCredential $cred
+Set-TargetResource -ForestFQDN centoso.tk -EnterpriseAdministratorCredential $cred -WhatIf
 
 # Invalid Domain
 Get-TargetResource -ForestFQDN centoso.cm -EnterpriseAdministratorCredential $cred
