@@ -24,8 +24,8 @@
     },
     "adDomainName": {
       "type": "string",
-      "defaultValue": "contoso.com",
-      "metadata": { "description": "Two-part internal AD name - short/NB name will be first part ('contoso')." }
+      "defaultValue": "centoso.com",
+      "metadata": { "description": "Two-part internal AD name - short/NB name will be first part ('centoso')." }
     },
     "usersArray": {
       "type": "array",

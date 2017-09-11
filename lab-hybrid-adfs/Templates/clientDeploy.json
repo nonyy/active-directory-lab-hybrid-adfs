@@ -25,7 +25,7 @@
     },
     "adDomainName": {
       "type": "string",
-      "defaultValue": "contoso.com"
+      "defaultValue": "centoso.com"
     },
     "clientsToDeploy": {
       "type": "array",

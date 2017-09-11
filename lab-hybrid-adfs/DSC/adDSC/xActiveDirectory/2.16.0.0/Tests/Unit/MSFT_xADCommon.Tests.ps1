@@ -38,7 +38,7 @@ try
         Describe "$($Global:DSCResourceName)\Resolve-DomainFQDN" {
 
             It 'Returns "DomainName" when "ParentDomainName" not supplied' {
-                $testDomainName = 'contoso.com';
+                $testDomainName = 'centoso.com';
                 $testParentDomainName = $null;
 
                 $result = Resolve-DomainFQDN -DomainName $testDomainName -ParentDomainName $testParentDOmainName;
@@ -48,7 +48,7 @@ try
 
             It 'Returns compound "DomainName.ParentDomainName" when "ParentDomainName" supplied' {
                 $testDomainName = 'subdomain';
-                $testParentDomainName = 'contoso.com';
+                $testParentDomainName = 'centoso.com';
 
                 $result = Resolve-DomainFQDN -DomainName $testDomainName -ParentDomainName $testParentDomainName;
 
@@ -80,9 +80,9 @@ try
         Describe "$($Global:DSCResourceName)\Get-DomainName" {
 
             It 'Returns exepected domain name' {
-                Mock Get-CimInstance { return @{ Name = $env:COMPUTERNAME; Domain = 'contoso.com'; } }
+                Mock Get-CimInstance { return @{ Name = $env:COMPUTERNAME; Domain = 'centoso.com'; } }
 
-                Get-DomainName | Should Be 'contoso.com';
+                Get-DomainName | Should Be 'centoso.com';
             }
 
         }
@@ -112,11 +112,11 @@ try
         Describe "$($Global:DSCResourceName)\Get-ADObjectParentDN" {
 
             It "Returns CN object parent path" {
-                Get-ADObjectParentDN -DN 'CN=Administrator,CN=Users,DC=contoso,DC=com' | Should Be 'CN=Users,DC=contoso,DC=com';
+                Get-ADObjectParentDN -DN 'CN=Administrator,CN=Users,DC=centoso,DC=com' | Should Be 'CN=Users,DC=centoso,DC=com';
             }
 
             It "Returns OU object parent path" {
-                Get-ADObjectParentDN -DN 'CN=Administrator,OU=Custom Organizational Unit,DC=contoso,DC=com' | Should Be 'OU=Custom Organizational Unit,DC=contoso,DC=com';
+                Get-ADObjectParentDN -DN 'CN=Administrator,OU=Custom Organizational Unit,DC=centoso,DC=com' | Should Be 'OU=Custom Organizational Unit,DC=centoso,DC=com';
             }
 
         }
@@ -385,7 +385,7 @@ try
         Describe "$($Global:DSCResourceName)\Get-ADCommonParameters" {
 
             It "Returns 'System.Collections.Hashtable' object type" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity;
 
@@ -393,7 +393,7 @@ try
             }
 
             It "Returns 'Identity' key by default" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity;
 
@@ -401,7 +401,7 @@ try
             }
 
             It "Returns 'Name' key when 'UseNameParameter' is specified" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -UseNameParameter;
 
@@ -410,7 +410,7 @@ try
 
             foreach ($identityParam in @('UserName','GroupName','ComputerName')) {
                 It "Returns 'Identity' key when '$identityParam' alias is specified" {
-                    $testIdentity = 'contoso.com';
+                    $testIdentity = 'centoso.com';
                     $getADCommonParameters = @{
                         $identityParam = $testIdentity;
                     }
@@ -422,7 +422,7 @@ try
             }
 
             It "Returns 'Identity' key by default when 'Identity' and 'CommonName' are specified" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
                 $testCommonName = 'Test Common Name';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -CommonName $testCommonName;
@@ -431,7 +431,7 @@ try
             }
 
             It "Returns 'Identity' key with 'CommonName' when 'Identity', 'CommonName' and 'PreferCommonName' are specified" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
                 $testCommonName = 'Test Common Name';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -CommonName $testCommonName -PreferCommonName;
@@ -440,7 +440,7 @@ try
             }
 
             It "Returns 'Identity' key with 'Identity' when 'Identity' and 'PreferCommonName' are specified" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -PreferCommonName;
 
@@ -448,7 +448,7 @@ try
             }
 
             it "Returns 'Name' key when 'UseNameParameter' and 'PreferCommonName' are supplied" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
                 $testCommonName = 'Test Common Name';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -UseNameParameter -CommonName $testCommonName -PreferCommonName;
@@ -457,7 +457,7 @@ try
             }
 
             It "Does not return 'Credential' key by default" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity;
 
@@ -465,7 +465,7 @@ try
             }
 
             It "Returns 'Credential' key when specified" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
                 $testCredential = [System.Management.Automation.PSCredential]::Empty;
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -Credential $testCredential;
@@ -474,7 +474,7 @@ try
             }
 
             It "Does not return 'Server' key by default" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity;
 
@@ -482,8 +482,8 @@ try
             }
 
             It "Returns 'Server' key when specified" {
-                $testIdentity = 'contoso.com';
-                $testServer = 'testserver.contoso.com';
+                $testIdentity = 'centoso.com';
+                $testServer = 'testserver.centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -Server $testServer;
 
@@ -491,7 +491,7 @@ try
             }
 
             It "Converts 'DomainAdministratorCredential' parameter to 'Credential' key" {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
                 $testCredential = [System.Management.Automation.PSCredential]::Empty;
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -DomainAdministratorCredential $testCredential;
@@ -500,8 +500,8 @@ try
             }
 
             It "Converts 'DomainController' parameter to 'Server' key" {
-                $testIdentity = 'contoso.com';
-                $testServer = 'testserver.contoso.com';
+                $testIdentity = 'centoso.com';
+                $testServer = 'testserver.centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -DomainController $testServer;
 
@@ -509,7 +509,7 @@ try
             }
 
             It 'Accepts remaining arguments' {
-                $testIdentity = 'contoso.com';
+                $testIdentity = 'centoso.com';
 
                 $result = Get-ADCommonParameters -Identity $testIdentity -UnexpectedParameter 42;
 

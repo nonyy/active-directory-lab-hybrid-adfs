@@ -40,20 +40,20 @@ try
         $testAbsentParams['Ensure'] = 'Absent';
 
         $fakeADComputer = @{
-            DistinguishedName = "CN=$($testPresentParams.ComputerName),CN=Computers,DC=contoso,DC=com";
+            DistinguishedName = "CN=$($testPresentParams.ComputerName),CN=Computers,DC=centoso,DC=com";
             Enabled = $true;
             Name = $testPresentParams.ComputerName;
             SamAccountName = '{0}$' -f $testPresentParams.ComputerName;
             SID = 'S-1-5-21-1409167834-891301383-2860967316-1143';
             ObjectClass = 'computer';
             ObjectGUID = [System.Guid]::NewGuid();
-            UserPrincipalName = 'TESTCOMPUTER@contoso.com';
+            UserPrincipalName = 'TESTCOMPUTER@centoso.com';
             ServicePrincipalNames = @('spn/a','spn/b');
             Location = 'Test location';
-            DnsHostName = '{0}.contoso.com' -f $testPresentParams.ComputerName;
+            DnsHostName = '{0}.centoso.com' -f $testPresentParams.ComputerName;
             DisplayName = $testPresentParams.ComputerName;
             Description = 'Test description';
-            ManagedBy = 'CN=Manager,CN=Users,DC=contoso,DC=com';
+            ManagedBy = 'CN=Manager,CN=Users,DC=centoso,DC=com';
         }
 
         $testDomainController = 'TESTDC';
@@ -414,7 +414,7 @@ try
                 $newAbsentParams['ComputerName'] = $newComputerName;
                 $newPresentParams = $testPresentParams.Clone();
                 $newPresentParams['ComputerName'] = $newComputerName;
-                $targetPath = 'OU=Test,DC=contoso,DC=com';
+                $targetPath = 'OU=Test,DC=centoso,DC=com';
                 Mock New-ADComputer -ParameterFilter { $Path -eq $targetPath } -MockWith { }
                 Mock Set-ADComputer { }
                 Mock Get-TargetResource -ParameterFilter { $ComputerName -eq $newComputerName } -MockWith { return $newAbsentParams; }
@@ -425,11 +425,11 @@ try
             }
 
             It "Calls 'Move-ADObject' when 'Ensure' is 'Present', the computer account exists but Path is incorrect" {
-                $testTargetPath = 'OU=NewPath,DC=contoso,DC=com';
+                $testTargetPath = 'OU=NewPath,DC=centoso,DC=com';
                 Mock Set-ADComputer { }
                 Mock Get-ADComputer {
                     $duffADComputer = $fakeADComputer.Clone();
-                    $duffADComputer['DistinguishedName'] = 'CN={0},OU=WrongPath,DC=contoso,DC=com' -f $testPresentParams.ComputerName;
+                    $duffADComputer['DistinguishedName'] = 'CN={0},OU=WrongPath,DC=centoso,DC=com' -f $testPresentParams.ComputerName;
                     return $duffADComputer;
                 }
                 Mock Move-ADObject -ParameterFilter { $TargetPath -eq $testTargetPath } -MockWith { }

@@ -39,7 +39,7 @@ try
 
         $testPresentParams = @{
             Name = 'TestOU'
-            Path = 'OU=Fake,DC=contoso,DC=com';
+            Path = 'OU=Fake,DC=centoso,DC=com';
             Description = 'Test AD OU description';
             Ensure = 'Present';
         }

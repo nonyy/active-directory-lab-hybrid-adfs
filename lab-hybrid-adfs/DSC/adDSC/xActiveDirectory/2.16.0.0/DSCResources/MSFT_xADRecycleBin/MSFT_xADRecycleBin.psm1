@@ -172,17 +172,17 @@ Export-ModuleMember -Function *-TargetResource
 <#
 Test syntax:
 
-$cred = Get-Credential contoso\administrator
+$cred = Get-Credential centoso\administrator
 
 # Valid Domain
-Get-TargetResource -ForestFQDN contoso.com -EnterpriseAdministratorCredential $cred
-Test-TargetResource -ForestFQDN contoso.com -EnterpriseAdministratorCredential $cred
-Set-TargetResource -ForestFQDN contoso.com -EnterpriseAdministratorCredential $cred -WhatIf
+Get-TargetResource -ForestFQDN centoso.com -EnterpriseAdministratorCredential $cred
+Test-TargetResource -ForestFQDN centoso.com -EnterpriseAdministratorCredential $cred
+Set-TargetResource -ForestFQDN centoso.com -EnterpriseAdministratorCredential $cred -WhatIf
 
 # Invalid Domain
-Get-TargetResource -ForestFQDN contoso.cm -EnterpriseAdministratorCredential $cred
-Test-TargetResource -ForestFQDN contoso.cm -EnterpriseAdministratorCredential $cred
-Set-TargetResource -ForestFQDN contoso.cm -EnterpriseAdministratorCredential $cred -WhatIf
+Get-TargetResource -ForestFQDN centoso.cm -EnterpriseAdministratorCredential $cred
+Test-TargetResource -ForestFQDN centoso.cm -EnterpriseAdministratorCredential $cred
+Set-TargetResource -ForestFQDN centoso.cm -EnterpriseAdministratorCredential $cred -WhatIf
 #>
 
 

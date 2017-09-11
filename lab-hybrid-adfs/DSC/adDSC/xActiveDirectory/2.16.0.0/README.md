@@ -58,7 +58,7 @@ These DSC Resources allow you to configure new domains, child domains, and high 
 ### **xADUser**
 
 * **DomainName**: Name of the domain to which the user will be added.
- * The Active Directory domain's fully-qualified domain name must be specified, i.e. contoso.com.
+ * The Active Directory domain's fully-qualified domain name must be specified, i.e. centoso.com.
  * This parameter is used to query and set the user's account password.
 * **UserName**: Specifies the Security Account Manager (SAM) account name of the user.
  * To be compatible with older operating systems, create a SAM account name that is 20 characters or less.
@@ -425,7 +425,7 @@ $ConfigData = @{
         @{
             Nodename = "dsc-testNode1"
             Role = "Primary DC"
-            DomainName = "dsc-test.contoso.com"
+            DomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 20
@@ -434,7 +434,7 @@ $ConfigData = @{
         @{
             Nodename = "dsc-testNode2"
             Role = "Replica DC"
-            DomainName = "dsc-test.contoso.com"
+            DomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 20
@@ -546,7 +546,7 @@ $ConfigData = @{
         @{
             Nodename = "dsc-testNode1"
             Role = "Primary DC"
-            DomainName = "dsc-test.contoso.com"
+            DomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 20
@@ -556,7 +556,7 @@ $ConfigData = @{
         @{
             Nodename = "dsc-testNode2"
             Role = "Replica DC"
-            DomainName = "dsc-test.contoso.com"
+            DomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 20
@@ -677,7 +677,7 @@ $ConfigData = @{
         @{
             Nodename = "dsc-testNode1"
             Role = "Parent DC"
-            DomainName = "dsc-test.contoso.com"
+            DomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 50
@@ -688,7 +688,7 @@ $ConfigData = @{
             Nodename = "dsc-testNode2"
             Role = "Child DC"
             DomainName = "dsc-child"
-            ParentDomainName = "dsc-test.contoso.com"
+            ParentDomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 50
@@ -754,8 +754,8 @@ $config = @{
     )
 }
 Sample_xADDomainTrust_OneWayTrust -configurationdata $config `
-                                  -SourceDomain safeharbor.contoso.com `
-                                  -TargetDomain corporate.contoso.com `
+                                  -SourceDomain safeharbor.centoso.com `
+                                  -TargetDomain corporate.centoso.com `
                                   -TargetDomainAdminCred (get-credential) `
                                   -TrustDirection 'Inbound'
 # Configuration to Setup Parent Child Domains
@@ -851,7 +851,7 @@ $ConfigData = @{
         @{
             Nodename = "dsc-testNode1"
             Role = "Parent DC"
-            DomainName = "dsc-test.contoso.com"
+            DomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 50
@@ -862,7 +862,7 @@ $ConfigData = @{
             Nodename = "dsc-testNode2"
             Role = "Child DC"
             DomainName = "dsc-child"
-            ParentDomainName = "dsc-test.contoso.com"
+            ParentDomainName = "dsc-test.centoso.com"
             CertificateFile = "C:\publicKeys\targetNode.cer"
             Thumbprint = "AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8"
             RetryCount = 50
@@ -921,7 +921,7 @@ $ConfigurationData = @{
     )
 }
 
-Example_xADRecycleBin -EACredential (Get-Credential contoso\administrator) -ForestFQDN 'contoso.com' -ConfigurationData $ConfigurationData
+Example_xADRecycleBin -EACredential (Get-Credential centoso\administrator) -ForestFQDN 'centoso.com' -ConfigurationData $ConfigurationData
 
 Start-DscConfiguration -Path .\Example_xADRecycleBin -Wait -Verbose
 ```
@@ -1051,7 +1051,7 @@ configuration Example_xADDomainDefaultPasswordPolicy
     }
 }
 
-Example_xADDomainDefaultPasswordPolicy -DomainName 'contoso.com' -ComplexityEnabled $true -MinPasswordLength 8
+Example_xADDomainDefaultPasswordPolicy -DomainName 'centoso.com' -ComplexityEnabled $true -MinPasswordLength 8
 
 Start-DscConfiguration -Path .\Example_xADDomainDefaultPasswordPolicy -Wait -Verbose
 

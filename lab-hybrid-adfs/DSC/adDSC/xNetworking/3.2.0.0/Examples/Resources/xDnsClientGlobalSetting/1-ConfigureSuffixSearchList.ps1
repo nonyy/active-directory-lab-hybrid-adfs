@@ -1,6 +1,6 @@
 <#
     .EXAMPLE
-    Configure only contoso.com for the DNS Suffix
+    Configure only centoso.com for the DNS Suffix
 #>
 configuration Example
 {
@@ -16,7 +16,7 @@ configuration Example
         xDnsClientGlobalSetting AddDNSSuffix
         {
             IsSingleInstance = 'Yes'
-            SuffixSearchList = 'contoso.com'
+            SuffixSearchList = 'centoso.com'
             UseDevolution    = $true
             DevolutionLevel  = 0
         }

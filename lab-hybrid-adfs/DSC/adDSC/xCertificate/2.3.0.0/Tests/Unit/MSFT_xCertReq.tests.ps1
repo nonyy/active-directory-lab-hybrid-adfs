@@ -83,17 +83,17 @@ try
                 }
             }
         ) -join ''
-        $CAServerFQDN          = 'rootca.contoso.com'
-        $CARootName            = 'contoso-CA'
+        $CAServerFQDN          = 'rootca.centoso.com'
+        $CARootName            = 'centoso-CA'
         $validSubject          = 'Test Subject'
-        $validIssuer           = "CN=$CARootName, DC=contoso, DC=com"
+        $validIssuer           = "CN=$CARootName, DC=centoso, DC=com"
         $KeyLength             = '1024'
         $Exportable            = $true
         $ProviderName          = '"Microsoft RSA SChannel Cryptographic Provider"'
         $OID                   = '1.3.6.1.5.5.7.3.1'
         $KeyUsage              = '0xa0'
         $CertificateTemplate   = 'WebServer'
-        $SubjectAltName        = 'dns=contoso.com'
+        $SubjectAltName        = 'dns=centoso.com'
 
         $validCert      = New-Object -TypeName PSObject -Property @{
             Thumbprint  = $validThumbprint

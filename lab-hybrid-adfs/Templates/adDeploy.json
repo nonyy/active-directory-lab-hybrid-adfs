@@ -30,7 +30,7 @@
     },
     "adDomainName": {
       "type": "string",
-      "defaultValue": "contoso.com"
+      "defaultValue": "centoso.com"
     },
     "assetLocation": {
       "type": "string"

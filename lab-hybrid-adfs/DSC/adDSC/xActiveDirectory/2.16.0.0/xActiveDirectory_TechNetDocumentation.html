@@ -227,11 +227,11 @@
                                 </li>
                                 <li>
                                     <strong>Resource folder (ex: MSFT_</strong><span style="font-family:Calibri; font-size:medium"><strong>xADDomain</strong></span> becomes
-                                    <strong>Contoso_x</strong><span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span>)
+                                    <strong>centoso_x</strong><span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span>)
                                 </li>
                                 <li>
                                     <strong>Resource Name (ex: MSFT_<span style="font-family:Calibri; font-size:medium"><strong>xADDomain</strong></span></strong> becomes
-                                    <strong>Contoso_c</strong><span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span>)
+                                    <strong>centoso_c</strong><span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span>)
                                 </li>
                                 <li>
                                     <strong>
@@ -242,11 +242,11 @@
                                 </li>
                                 <li>
                                     <strong>MOF class name (ex: MSFT_x<span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span></strong> becomes
-                                    <strong>Contoso_c<span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span></strong>)
+                                    <strong>centoso_c<span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span></strong>)
                                 </li>
                                 <li>
                                     <strong>Filename for the &lt;resource&gt;.schema.mof (ex: MSFT_x<span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span></strong>.schema.mof becomes
-                                    <strong>Contoso_c<span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span></strong>.schema.mof)
+                                    <strong>centoso_c<span style="font-family:Calibri; font-size:medium"><strong>ADDomain</strong></span></strong>.schema.mof)
                                 </li>
                             </ul>
                         </li>
@@ -400,7 +400,7 @@ $ConfigData = @{
         @{
             Nodename = &quot;dsc-testNode1&quot;
             Role = &quot;Primary DC&quot;
-            DomainName = &quot;dsc-test.contoso.com&quot;
+            DomainName = &quot;dsc-test.centoso.com&quot;
             CertificateFile = &quot;C:\publicKeys\targetNode.cer&quot;  
             Thumbprint = &quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot; 
 	        RetryCount = 20 
@@ -409,7 +409,7 @@ $ConfigData = @{
         @{
             Nodename = &quot;dsc-testNode2&quot;
             Role = &quot;Replica DC&quot;
-            DomainName = &quot;dsc-test.contoso.com&quot;
+            DomainName = &quot;dsc-test.centoso.com&quot;
             CertificateFile = &quot;C:\publicKeys\targetNode.cer&quot;  
             Thumbprint = &quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot; 
 	        RetryCount = 20 
@@ -523,7 +523,7 @@ configuration&nbsp;AssertHADC&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@{&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nodename&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-testNode1&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role&nbsp;=&nbsp;<span class="powerShell__string">&quot;Primary&nbsp;DC&quot;</span>&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.contoso.com&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.centoso.com&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CertificateFile&nbsp;=&nbsp;<span class="powerShell__string">&quot;C:\publicKeys\targetNode.cer&quot;</span>&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thumbprint&nbsp;=&nbsp;<span class="powerShell__string">&quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot;</span>&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetryCount&nbsp;=&nbsp;20&nbsp;&nbsp;
@@ -533,7 +533,7 @@ configuration&nbsp;AssertHADC&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@{&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nodename&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-testNode2&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role&nbsp;=&nbsp;<span class="powerShell__string">&quot;Replica&nbsp;DC&quot;</span>&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.contoso.com&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.centoso.com&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CertificateFile&nbsp;=&nbsp;<span class="powerShell__string">&quot;C:\publicKeys\targetNode.cer&quot;</span>&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thumbprint&nbsp;=&nbsp;<span class="powerShell__string">&quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot;</span>&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetryCount&nbsp;=&nbsp;20&nbsp;&nbsp;
@@ -663,7 +663,7 @@ configuration&nbsp;AssertParentChildDomains&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@{&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nodename&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-testNode1&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role&nbsp;=&nbsp;<span class="powerShell__string">&quot;Parent&nbsp;DC&quot;</span>&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.contoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.centoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CertificateFile&nbsp;=&nbsp;<span class="powerShell__string">&quot;C:\publicKeys\targetNode.cer&quot;</span>&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thumbprint&nbsp;=&nbsp;<span class="powerShell__string">&quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot;</span>&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetryCount&nbsp;=&nbsp;50&nbsp;&nbsp;
@@ -674,7 +674,7 @@ configuration&nbsp;AssertParentChildDomains&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nodename&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-testNode2&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role&nbsp;=&nbsp;<span class="powerShell__string">&quot;Child&nbsp;DC&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-child&quot;</span>&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ParentDomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.contoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ParentDomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.centoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CertificateFile&nbsp;=&nbsp;<span class="powerShell__string">&quot;C:\publicKeys\targetNode.cer&quot;</span>&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thumbprint&nbsp;=&nbsp;<span class="powerShell__string">&quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot;</span>&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetryCount&nbsp;=&nbsp;50&nbsp;&nbsp;
@@ -753,8 +753,8 @@ $config = @{
     )
 }
 Sample_xADDomainTrust_OneWayTrust -configurationdata $config `
-                                  -SourceDomain safeharbor.contoso.com `
-                                  -TargetDomain corporate.contoso.com `
+                                  -SourceDomain safeharbor.centoso.com `
+                                  -TargetDomain corporate.centoso.com `
                                   -TargetDomainAdminCred (get-credential) `
                                   -TrustDirection 'Inbound'
 </pre>
@@ -852,7 +852,7 @@ configuration&nbsp;AssertParentChildDomains&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@{&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nodename&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-testNode1&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role&nbsp;=&nbsp;<span class="powerShell__string">&quot;Parent&nbsp;DC&quot;</span>&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.contoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.centoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CertificateFile&nbsp;=&nbsp;<span class="powerShell__string">&quot;C:\publicKeys\targetNode.cer&quot;</span>&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thumbprint&nbsp;=&nbsp;<span class="powerShell__string">&quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot;</span>&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetryCount&nbsp;=&nbsp;50&nbsp;&nbsp;
@@ -863,7 +863,7 @@ configuration&nbsp;AssertParentChildDomains&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nodename&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-testNode2&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Role&nbsp;=&nbsp;<span class="powerShell__string">&quot;Child&nbsp;DC&quot;</span>&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-child&quot;</span>&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ParentDomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.contoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ParentDomainName&nbsp;=&nbsp;<span class="powerShell__string">&quot;dsc-test.centoso.com&quot;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CertificateFile&nbsp;=&nbsp;<span class="powerShell__string">&quot;C:\publicKeys\targetNode.cer&quot;</span>&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thumbprint&nbsp;=&nbsp;<span class="powerShell__string">&quot;AC23EA3A9E291A75757A556D0B71CBBF8C4F6FD8&quot;</span>&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RetryCount&nbsp;=&nbsp;50&nbsp;&nbsp;

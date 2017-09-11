@@ -18,7 +18,7 @@ Import-Module Azure -ErrorAction SilentlyContinue
 
     $userName                = "<AD ADMINISTRATOR LOGIN>"
     $secpasswd               = “<AD ADMINISTRATOR PASSWORD>”
-    $adDomainName            = "<2-PART AD DOMAIN NAME, LIKE CONTOSO.COM>"
+    $adDomainName            = "<2-PART AD DOMAIN NAME, LIKE centoso.COM>"
     $usersArray              = @(
                                 @{ "FName"= "Bob";  "LName"= "Jones";    "SAM"= "bjones" },
                                 @{ "FName"= "Bill"; "LName"= "Smith";    "SAM"= "bsmith" },

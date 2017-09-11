@@ -35,12 +35,12 @@ try
             GroupName = 'TestGroup'
             GroupScope = 'Global';
             Category = 'Security';
-            Path = 'OU=Fake,DC=contoso,DC=com';
+            Path = 'OU=Fake,DC=centoso,DC=com';
             Description = 'Test AD group description';
             DisplayName = 'Test display name';
             Ensure = 'Present';
             Notes = 'This is a test AD group';
-            ManagedBy = 'CN=User 1,CN=Users,DC=contoso,DC=com';
+            ManagedBy = 'CN=User 1,CN=Users,DC=centoso,DC=com';
         }
 
         $testAbsentParams = $testPresentParams.Clone();
@@ -59,19 +59,19 @@ try
         }
 
         $fakeADUser1 = [PSCustomObject] @{
-            DistinguishedName = 'CN=User 1,CN=Users,DC=contoso,DC=com';
+            DistinguishedName = 'CN=User 1,CN=Users,DC=centoso,DC=com';
             ObjectGUID = 'a97cc867-0c9e-4928-8387-0dba0c883b8e';
             SamAccountName = 'USER1';
             SID = 'S-1-5-21-1131554080-2861379300-292325817-1106'
         }
         $fakeADUser2 = [PSCustomObject] @{
-            DistinguishedName = 'CN=User 2,CN=Users,DC=contoso,DC=com';
+            DistinguishedName = 'CN=User 2,CN=Users,DC=centoso,DC=com';
             ObjectGUID = 'a97cc867-0c9e-4928-8387-0dba0c883b8f';
             SamAccountName = 'USER2';
             SID = 'S-1-5-21-1131554080-2861379300-292325817-1107'
         }
         $fakeADUser3 = [PSCustomObject] @{
-            DistinguishedName = 'CN=User 3,CN=Users,DC=contoso,DC=com';
+            DistinguishedName = 'CN=User 3,CN=Users,DC=centoso,DC=com';
             ObjectGUID = 'a97cc867-0c9e-4928-8387-0dba0c883b90';
             SamAccountName = 'USER3';
             SID = 'S-1-5-21-1131554080-2861379300-292325817-1108'
@@ -248,7 +248,7 @@ try
             It "Fails when group exists, 'Ensure' is 'Present' but 'Path' is wrong" {
                 Mock Get-TargetResource {
                     $duffADGroup = $testPresentParams.Clone();
-                    $duffADGroup['Path'] = 'OU=WrongPath,DC=contoso,DC=com';
+                    $duffADGroup['Path'] = 'OU=WrongPath,DC=centoso,DC=com';
                     return $duffADGroup;
                 }
 
@@ -423,7 +423,7 @@ try
                 Mock Move-ADObject { }
                 Mock Get-ADGroup {
                     $duffADGroup = $fakeADGroup.Clone();
-                    $duffADGroup['DistinguishedName'] = "CN=$($testPresentParams.GroupName),OU=WrongPath,DC=contoso,DC=com";
+                    $duffADGroup['DistinguishedName'] = "CN=$($testPresentParams.GroupName),OU=WrongPath,DC=centoso,DC=com";
                     return $duffADGroup;
                 }
 
@@ -514,7 +514,7 @@ try
                 Mock Move-ADObject -ParameterFilter { $Credential -eq $testCredentials } { }
                 Mock Get-ADGroup {
                     $duffADGroup = $fakeADGroup.Clone();
-                    $duffADGroup['DistinguishedName'] = "CN=$($testPresentParams.GroupName),OU=WrongPath,DC=contoso,DC=com";
+                    $duffADGroup['DistinguishedName'] = "CN=$($testPresentParams.GroupName),OU=WrongPath,DC=centoso,DC=com";
                     return $duffADGroup;
                 }
 

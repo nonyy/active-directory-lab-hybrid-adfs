@@ -26,7 +26,7 @@ try
     InModuleScope $Global:DSCResourceName {
 
         $testPresentParams = @{
-            DomainName = 'contoso.com';
+            DomainName = 'centoso.com';
             UserName = 'TestUser';
             Ensure = 'Present';
         }
@@ -35,7 +35,7 @@ try
         $testAbsentParams['Ensure'] = 'Absent';
 
         $fakeADUser = @{
-            DistinguishedName = "CN=$($testPresentParams.UserName),CN=Users,DC=contoso,DC=com";
+            DistinguishedName = "CN=$($testPresentParams.UserName),CN=Users,DC=centoso,DC=com";
             Enabled = $true;
             GivenName = '';
             Name = $testPresentParams.UserName;
@@ -298,11 +298,11 @@ try
             }
 
             It "Calls 'Move-ADObject' when 'Ensure' is 'Present', the account exists but Path is incorrect" {
-                $testTargetPath = 'CN=Users,DC=contoso,DC=com';
+                $testTargetPath = 'CN=Users,DC=centoso,DC=com';
                 Mock Set-ADUser { }
                 Mock Get-ADUser {
                     $duffADUser = $fakeADUser.Clone();
-                    $duffADUser['DistinguishedName'] = "CN=$($testPresentParams.UserName),OU=WrongPath,DC=contoso,DC=com";
+                    $duffADUser['DistinguishedName'] = "CN=$($testPresentParams.UserName),OU=WrongPath,DC=centoso,DC=com";
                     return $duffADUser;
                 }
                 Mock Move-ADObject -ParameterFilter { $TargetPath -eq $testTargetPath } -MockWith { }
